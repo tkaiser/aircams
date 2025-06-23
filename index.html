@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Weather Briefing Done Quick</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,36 +9,56 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
 
-<div class="container">
-  <h2>Webcams Flugplätze</h2>
+<script type="module">
+    import { createApp } from 'vue'
+
+    const airfields = [
+        {
+            id: "LOAV",
+            name: "Bad Vöslau",
+            webcamImageUrl: "https://flugplatz-voeslau1.panocloud.webcam/current1.jpg"
+        },
+        {
+            id: "LOLW",
+            name: "Wels",
+            webcamImageUrl: "https://www.wmw.at/webcam/caming.jpg"
+        },
+        {
+            id: "LOWZ",
+            name: "Zell am See",
+            webcamImageUrl: "https://lowz.at/webcams/webcam2/image2a.jpg"
+        },
+    ];
+
+    createApp({
+        data() {
+            return {
+                airfields
+            }
+        }
+    }).mount('#app')
+</script>
+
+<div id="app" class="container">
+  <h2>Weather Briefing Done Quick</h2>
+  <h3>{{airfields.length}} airfields configured</h3>
+
+
   <div class="row">
-    <div class="col-md-4">
+    <div v-for="item in airfields" class="col-md-4">
       <div class="thumbnail">
-        <a href="https://flugplatz-voeslau1.panocloud.webcam/current1.jpg" target="_blank">
-          <img src="https://flugplatz-voeslau1.panocloud.webcam/current1.jpg" alt="Lights" style="width:100%">
+        <a :href="item.webcamImageUrl" target="_blank">
+          <img  :src="item.webcamImageUrl" alt="Lights" style="width:100%">
           <div class="caption">
-            <p>LOAV Bad Vöslau</p>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="https://www.wmw.at/webcam/caming.jpg" target="_blank">
-          <img src="https://www.wmw.at/webcam/caming.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>LOLW Wels</p>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="https://lowz.at/webcams/webcam2/image2a.jpg" target="_blank">
-          <img src="https://lowz.at/webcams/webcam2/image2a.jpg" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p>LOWZ Zell am See</p>
+            <p>{{item.id}} {{item.name}}</p>
           </div>
         </a>
       </div>
