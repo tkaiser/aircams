@@ -1,3 +1,3 @@
 # airfield-webcams
 
-[Link](https://airfields.github.io)
+[Link](https://tkaiser.github.io/aircams/)
