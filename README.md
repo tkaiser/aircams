@@ -1,9 +1,14 @@
 # Weather Briefing Done Quick
 
-A quick overview of the general weather situation around Austrian airfields. 
+A [quick overview](https://tkaiser.github.io/wbdq/) of the general weather situation around Austrian airfields. 
 
-[Link](https://tkaiser.github.io/wbdq/) to the Github Pages deployment.
+> ⚠️ For informational purposes only
 
+> ⚠️ Webcam images may be out of date/missing/invalid for any reason
+ 
+> ⚠️ Not a replacement for a mandatory pre-flight weather briefing!
+
+ 
 ## How to request (or contribute!) a new airfield
 Open a [issue](https://github.com/tkaiser/wbdq/issues/new) with the airfields
 - ICAO code
