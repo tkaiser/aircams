@@ -22,6 +22,11 @@
 
     const airfields = [
         {
+            id: "LOAG",
+            name: "Krems Langenlois",
+            webcamImageUrl: "https://img.youtube.com/vi/7I1kVwGKEgM/0.jpg"
+        },
+        {
             id: "LOAV",
             name: "Bad Vöslau",
             webcamImageUrl: "https://flugplatz-voeslau1.panocloud.webcam/current1.jpg"
@@ -30,6 +35,11 @@
             id: "LOLW",
             name: "Wels",
             webcamImageUrl: "https://www.wmw.at/webcam/caming.jpg"
+        },
+        {
+            id: "LOWL",
+            name: "Linz",
+            webcamImageUrl: "https://www.linz-airport.com/static/webcams/image1.jpg"
         },
         {
             id: "LOWZ",
@@ -48,17 +58,21 @@
 </script>
 
 <div id="app" class="container">
-  <h2>Weather Briefing Done Quick</h2>
-  <h3>{{airfields.length}} airfields configured</h3>
+  <h1>Weather Briefing Done Quick</h1>
+
+  <p class="lead">Get a quick overview of the weather around Austria's airfields</p>
+    <div class="alert alert-warning" role="alert">
+        Not a substitute for a real pre-flight weather briefing!
+    </div>
 
 
   <div class="row">
     <div v-for="item in airfields" class="col-md-4">
       <div class="thumbnail">
         <a :href="item.webcamImageUrl" target="_blank">
-          <img  :src="item.webcamImageUrl" alt="Lights" style="width:100%">
+          <img  :src="item.webcamImageUrl" alt="Lights" >
           <div class="caption">
-            <p>{{item.id}} {{item.name}}</p>
+            <p><a :href="item.webcamImageUrl" target="_blank">{{item.id}} {{item.name}}</a></p>
           </div>
         </a>
       </div>
